@@ -1,0 +1,26 @@
+comment 
+comment First test program - PRS 2014-01-21
+comment 
+
+comment Switch on the machine
+on 903 8k
+telecode 903
+
+comment  Load SIR assembler from paper tape reader
+attach ptr file C:\Users\philip.searle\Documents\ELLIOTT\ACDSIR\SIR1P71.BIN
+jump 8181
+st 8175
+
+comment Prepare paper tape containing program to assemble; set output to teletype
+nonprinting off
+select out tty
+attach ptr file WORLD.900
+
+comment Start assembling 900-format paper tape (entry point from SIR manual, book 103)
+jump &17740
+st 7573
+
+comment Program assembled, now we can run it!
+jump 8
+st 33
+show times
