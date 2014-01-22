@@ -1,0 +1,18 @@
+
+Bit patterns for instruction 15 (input/output)
+----------------------------------------------
+
+b = B-modifier mark
+f = function bits (all set for instruction 15)
+d = device number
+x = don't care
+
+Decimal value | Word layout           | Effect
+--------------+-----------------------+-----------------------------------
+0-2047		b ffff 00ddddddddddd	Input from peripheral device n11-1
+2048		b ffff 0100000000000	Input from tape reader
+2052		b ffff 0100000001000	Input from teleprinter
+4096-6193	b ffff 10ddddddddddd	Output to peripheral device n11-1
+6144		b ffff 1100000000000	Output to tape punch
+6148		b ffff 1100000000100	Output to teleprinter
+7168-8191	b ffff 111xxxxxxxxxx	Program terminate
