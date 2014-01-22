@@ -1,0 +1,19 @@
+
+Bit patterns for instruction 14 (shift/block IO)
+------------------------------------------------
+
+b = B-modifier mark
+f = function bits (1110 for instruction 14)
+d = device number
+x = don't care
+
+Decimal value | Word layout           | Effect
+--------------+-----------------------+-----------------------------------
+0-47		b ffff 0000000000000	Left shift by n
+		b ffff 0000000101111
+48-2047					Undefined
+2048-4095	b ffff 01ddddddddddd	Block input from device
+4096-6143	b ffff 10ddddddddddd	Block output to device
+6144-8143				Undefined
+8144-8191	b ffff 1111111010000	Right shift by n-8192
+		b ffff 1111111111111
